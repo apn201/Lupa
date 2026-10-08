@@ -137,3 +137,17 @@ def test_caps_survive_restart(tmp_path):
     s = make_settings(tmp_path, llm_max_calls_per_hour=1)
     CostGate(s).record()
     assert CostGate(s).allow() == (False, "hourly_cap")
+
+
+def test_dotenv_last_line_wins_and_real_env_wins(tmp_path, monkeypatch):
+    from lupa.config import load_dotenv
+    env = tmp_path / ".env"
+    env.write_text("LUPA_T_A=
+LUPA_T_A=filled
+LUPA_T_B=file
+", encoding="utf-8")
+    monkeypatch.delenv("LUPA_T_A", raising=False)
+    monkeypatch.setenv("LUPA_T_B", "real")
+    load_dotenv(env)
+    import os
+    assert os.environ["LUPA_T_A"] == "filled" and os.environ["LUPA_T_B"] == "real"

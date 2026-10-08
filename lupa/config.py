@@ -19,15 +19,20 @@ MARKERS = {PAYPAL: "PAYPAL", PROPOSED: "PROPOSED", AI: "AI", POLICY: "POLICY"}
 
 
 def load_dotenv(path: Path = ROOT / ".env") -> None:
-    """Minimal .env reader. Real environment variables win over the file."""
+    """Minimal .env reader. Real environment variables win over the file;
+    within the file the last line for a key wins (a key filled in below the
+    template's empty line must not be shadowed by it)."""
     if not path.exists():
         return
+    values: dict[str, str] = {}
     for line in path.read_text(encoding="utf-8").splitlines():
         line = line.strip()
         if not line or line.startswith("#") or "=" not in line:
             continue
         key, _, value = line.partition("=")
-        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+        values[key.strip()] = value.strip().strip('"').strip("'")
+    for key, value in values.items():
+        os.environ.setdefault(key, value)
 
 
 def _env(name: str, default: str = "") -> str:
