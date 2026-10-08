@@ -112,17 +112,32 @@ def main(src: str, dst: str) -> int:
 
     settings_path = PRIVATE / "settings_list.yml"
     settings_list = yaml.safe_load(settings_path.read_text(encoding="utf-8")) if settings_path.exists() else {}
+    # The settings page and the export can name the same merchant differently
+    # ("Example (USA) Inc.," on one, "Example BV" in the other); the agreement id is the join key.
+    name_by_ref: dict[str, str] = {}
+    for row in read_rows(text):
+        ref_id = (row.get("Reference Txn ID") or "").strip()
+        if ref_id.startswith("B-") and (row.get("Name") or "").strip():
+            name_by_ref.setdefault(ref_id, row["Name"].strip())
     merchants = {}
+    matched = 0
     for name, info in (settings_list or {}).items():
+        info = info or {}
+        ref_id = info.get("agreement_ref")
+        if ref_id in name_by_ref:
+            name = name_by_ref[ref_id]
+            matched += 1
         if name not in aliases:
             aliases[name] = next(gen)
-        info = info or {}
         m = {"category": categories.get(name, "digital service"), "agreement": info.get("agreement", "active")}
+        if ref_id:
+            m["agreement_ref"] = hash_id(k, ref_id)
         if info.get("last_known_payment"):
             m["last_known_payment"] = str(datetime.fromisoformat(str(info["last_known_payment"])).date() + shift)
         merchants[aliases[name]] = m
     for name, alias in aliases.items():
         merchants.setdefault(alias, {"category": categories.get(name, "digital service")})
+    print(f"settings list: {len(settings_list or {})} agreements, {matched} matched to the export by agreement id")
     ref = max(datetime.strptime(r["Date"], "%d/%m/%Y") for r in out) + timedelta(days=1)
     known = {"reference_date": ref.date().isoformat(), "merchants": dict(sorted(merchants.items()))}
     (Path(dst).parent / "merchants.yml").write_text(

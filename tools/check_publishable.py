@@ -42,6 +42,11 @@ def secrets_from_private() -> tuple[set[str], set[str]]:
                 if len(v) >= 4:
                     values.add(v.lower())
             words |= {w.lower() for w in re.findall(r"[A-Za-z]{5,}", row.get("Name") or "")}
+    raw = PRIVATE / "autopay_raw.txt"
+    if raw.exists():
+        text = raw.read_text(encoding="utf-8", errors="replace")
+        values |= {m.lower() for m in re.findall(r"\bB-[0-9A-Z]{10,}\b", text)}
+        values |= {m.lower() for m in re.findall(r"https?://[^\s/]+", text) if "paypal.com" not in m}
     cats = PRIVATE / "merchant_categories.yml"
     if cats.exists():
         for line in cats.read_text(encoding="utf-8").splitlines():

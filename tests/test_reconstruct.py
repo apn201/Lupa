@@ -101,17 +101,26 @@ REAL_KNOWN = SAMPLE.parent / "merchants.yml"
 
 
 def test_real_sample_counts_frozen():
-    """Frozen from the real numbers on 2026-10-08 (export only, no settings list yet).
-
-    When private/settings_list.yml is added and the sample regenerated, re-freeze:
-    agreements with no charge in the window then become permissions too.
-    """
+    """Frozen from the real numbers on 2026-10-08: the export plus a partial settings list (8 agreements)."""
     import pytest
     if not REAL.exists():
         pytest.skip("no anonymized sample")
     known = recon.load_known(REAL_KNOWN)
     res = recon.reconstruct(activity_csv.load(REAL), known, known.reference_date)
-    assert len(res) == 15
-    assert Counter(r.permission.kind for r in res) == {"unknown": 10, "fixed_recurring": 4, "variable_recurring": 1}
-    assert Counter(f for r in res for f in r.permission.attention) == {"NEW_LAST_30D": 3, "AMOUNT_JUMP": 2}
-    assert Counter(r.permission.currency for r in res) == {"EUR": 12, "USD": 2, "SEK": 1}
+    assert len(res) == 20
+    assert sum(r.permission.external_ref.startswith("B-") for r in res) == 18
+    assert Counter(r.permission.kind for r in res) == {
+        "unknown": 9, "one_time_authority": 6, "fixed_recurring": 4, "variable_recurring": 1}
+    assert Counter(f for r in res for f in r.permission.attention) == {
+        "ONE_OFF_STILL_ACTIVE": 6, "NEW_LAST_30D": 3, "NO_HISTORY": 3, "AMOUNT_JUMP": 2,
+        "DORMANT_12M": 1, "DORMANT_6M": 1}
+    assert Counter(r.permission.currency for r in res) == {"EUR": 17, "USD": 2, "SEK": 1}
+
+
+def test_charge_linked_through_authorization_joins_its_agreement():
+    """Real exports: the payment points at an authorization row, which carries the B- reference."""
+    text = ("Date,Time,TimeZone,Name,Type,Status,Currency,Gross,Net,Transaction ID,Reference Txn ID,Balance Impact\n"
+            "02/07/2026,10:00:00,PDT,Merchant O,General Authorization,Completed,EUR,-68.46,-68.46,AUTH1,B-AGREEMENT01,Memo\n"
+            "02/07/2026,10:00:01,PDT,Merchant O,PreApproved Payment Bill User Payment,Completed,EUR,-68.46,-68.46,PAY1,AUTH1,Debit\n")
+    [rec] = recon.reconstruct(activity_csv.parse(text), recon.Known(), NOW)
+    assert rec.permission.external_ref == "B-AGREEMENT01" and rec.profile.n_payments == 1

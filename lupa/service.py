@@ -133,8 +133,8 @@ class Lupa:
         perms = [p for p in self.repo.list(Permission) if p.status == "active"]
         silent = [p for p in perms if "DORMANT_12M" in p.attention]
         return {"active": len(perms), "silent_over_a_year": len(silent),
-                "text": f"{len(perms)} companies can take money from you. "
-                        f"{len(silent)} have not in over a year."}
+                "text": f"{len(perms)} {'company' if len(perms) == 1 else 'companies'} can take money from you. "
+                        f"{len(silent)} {'has' if len(silent) == 1 else 'have'} not in over a year."}
 
     def permission_detail(self, pid: str) -> dict:
         perm = self.permission(pid)

@@ -91,9 +91,17 @@ def group(txns: list[Txn], known: Known) -> dict[tuple[str, str], list[Txn]]:
     refunds = [t for t in txns if is_refund(t)]
     groups: dict[tuple[str, str], list[Txn]] = {}
     loose: dict[str, list[Txn]] = {}
+    # A charge can point at an authorization row instead of the agreement; that
+    # authorization row carries the B- reference. Follow that one hop.
+    agreement_of = {t.txn_id: t.ref_id for t in txns
+                    if t.ref_type in ("SUB", "PAP") and t.ref_id and t.txn_id}
     for t in charges:
-        if t.ref_type in ("SUB", "PAP") and t.ref_id:
-            groups.setdefault((t.ref_type, t.ref_id), []).append(t)
+        ref_type, ref_id = t.ref_type, t.ref_id
+        if ref_type not in ("SUB", "PAP") and ref_id in agreement_of:
+            ref_id = agreement_of[ref_id]
+            ref_type = "SUB" if ref_id.startswith("I-") else "PAP"
+        if ref_type in ("SUB", "PAP") and ref_id:
+            groups.setdefault((ref_type, ref_id), []).append(t)
         else:
             loose.setdefault(t.counterparty, []).append(t)
     for cp, ts in loose.items():

@@ -3,16 +3,32 @@ reference_date: '2026-10-12'
 merchants:
   Merchant A:
     category: individual
+  Merchant AA:
+    category: media
+    agreement: active
+    agreement_ref: B-F0CAC2AB9CFE849
+    last_known_payment: '2023-11-23'
+  Merchant AB:
+    category: cloud
+    agreement: active
+    agreement_ref: B-5B3E80747D6482E
+    last_known_payment: '2025-12-13'
   Merchant B:
     category: software
   Merchant C:
     category: cloud
+    agreement: active
+    agreement_ref: B-1126F5FEB52655C
+    last_known_payment: '2026-10-06'
   Merchant D:
     category: media
   Merchant E:
     category: media
   Merchant F:
     category: cloud
+    agreement: active
+    agreement_ref: B-2D06D099065D875
+    last_known_payment: '2026-10-07'
   Merchant G:
     category: cloud
   Merchant H:
@@ -31,6 +47,9 @@ merchants:
     category: marketplace
   Merchant O:
     category: retailer
+    agreement: active
+    agreement_ref: B-330703219C6EF31
+    last_known_payment: '2026-07-02'
   Merchant P:
     category: software
   Merchant Q:
@@ -39,6 +58,9 @@ merchants:
     category: digital service
   Merchant S:
     category: travel provider
+    agreement: active
+    agreement_ref: B-AD0646E1C9C605A
+    last_known_payment: '2026-07-18'
   Merchant T:
     category: cloud
   Merchant U:
@@ -49,5 +71,12 @@ merchants:
     category: marketplace
   Merchant X:
     category: travel provider
+    agreement: active
+    agreement_ref: B-7351BE088F5DAB1
+    last_known_payment: '2026-09-25'
   Merchant Y:
     category: cloud
+  Merchant Z:
+    category: individual
+    agreement: active
+    agreement_ref: B-232F254FE637276
