@@ -16,7 +16,17 @@ function toCents(text) {
   const n = Number(String(text).replace(",", "."));
   return Number.isFinite(n) ? Math.round(n * 100) : NaN;
 }
-function day(iso) { return iso ? iso.slice(0, 10) : "–"; }
+// The ledger stores UTC; show the viewer's local time.
+const pad = n => String(n).padStart(2, "0");
+function day(iso) {
+  if (!iso) return "–";
+  const d = new Date(iso);
+  return isNaN(d) ? iso.slice(0, 10) : `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+function stamp(iso) {
+  const d = new Date(iso);
+  return isNaN(d) ? iso : `${day(iso)} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+}
 function mark(m) { return m ? `<b class="m ${MARK[m] || ""}" title="${esc(m)}">${esc(m)}</b>` : ""; }
 const KIND = {
   fixed_recurring: "fixed recurring", variable_recurring: "variable recurring",
@@ -322,7 +332,7 @@ function summary(p) {
 async function loadTrace() {
   const { data } = await call("GET", `${API}/events?limit=200`);
   $("#trace-list").innerHTML = data.map(e => `<li><span class="dot">${mark(e.marker)}</span>
-    <span class="kind">${esc(e.kind)}</span><span class="when">${esc(e.at.slice(0, 19).replace("T", " "))}</span>
+    <span class="kind">${esc(e.kind)}</span><span class="when">${esc(stamp(e.at))}</span>
     <div class="payload">${esc(e.ref_id || "")} ${esc(summary(e.payload))}</div></li>`).join("");
 }
 
