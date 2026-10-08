@@ -85,6 +85,10 @@ def _parse_dt(date: str, time: str, tz: str) -> datetime:
     tz = (tz or "").strip()
     if tz in ("EET", "EEST"):
         zone = ZoneInfo("Europe/Helsinki")
+    elif tz in ("PDT", "PST"):
+        zone = ZoneInfo("America/Los_Angeles")  # PayPal's own exports often use Pacific time
+    elif tz in ("CET", "CEST"):
+        zone = ZoneInfo("Europe/Berlin")
     elif "/" in tz:
         try:
             zone = ZoneInfo(tz)

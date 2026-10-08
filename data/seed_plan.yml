@@ -1,29 +1,30 @@
 # What scripts/seed_sandbox.py creates in the PayPal sandbox. Sandbox only.
+# Aliases start with "Sandbox" so they never collide with the anonymized export's Merchant A..Y.
 product: Lupa demo service
 currency: EUR
 plans:
-  - alias: Merchant B
+  - alias: Sandbox Stream
     name: Monthly 3.14
     amount: "3.14"
     interval: MONTH
-  - alias: Merchant A
+  - alias: Sandbox Cloud
     name: Monthly 8.49
     amount: "8.49"
     interval: MONTH
-  - alias: Merchant C
+  - alias: Sandbox Software
     name: Monthly 18.49
     amount: "18.49"
     interval: MONTH
     # after the first charge, the price goes up: the AMOUNT_JUMP story
     price_update: "29.99"
-  - alias: Merchant K
+  - alias: Sandbox Annual
     name: Yearly 75.00
     amount: "75.00"
     interval: YEAR
 one_off_orders:
-  - {alias: Merchant H, amount: "89.00"}
-  - {alias: Merchant I, amount: "34.50"}
-  - {alias: Merchant I, amount: "22.90"}
-  - {alias: Merchant J, amount: "15.99"}
-  - {alias: Merchant M, amount: "9.99"}
-  - {alias: Merchant D, amount: "4.55"}
+  - {alias: Sandbox Travel, amount: "89.00"}
+  - {alias: Sandbox Shop, amount: "34.50"}
+  - {alias: Sandbox Shop, amount: "22.90"}
+  - {alias: Sandbox Market, amount: "15.99"}
+  - {alias: Sandbox App, amount: "9.99"}
+  - {alias: Sandbox Hosting, amount: "4.55"}

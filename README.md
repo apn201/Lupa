@@ -102,7 +102,9 @@ the ledger. An answer holding a number that is not in its input is dropped.
 - Transaction Search lags up to three hours.
 - Revoking a permission reconstructed from a real export cannot reach PayPal: there is no buyer API.
   Lupa says so and links to the PayPal settings page.
-- The sample data in `data/` is synthetic until the anonymized export replaces it.
+- `data/sample_activity_anonymized.csv` is a real six-month PayPal activity export, anonymized: merchants
+  are aliases with a category, ids are keyed hashes, dates are shifted, amounts are real.
+  `data/sample_activity_synthetic.csv` is a generated stand-in the tests also use.
 - Prior art: Google AP2 mandates, Privacy.com single-use cards, Coinbase agent session caps. What
   differs here: the PayPal rail, permissions reconstructed from payment history, and the authority
   invariant as a tested property.

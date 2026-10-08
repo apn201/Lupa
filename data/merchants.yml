@@ -1,0 +1,53 @@
+# Anonymized. alias -> category and the settings-list agreement state.
+reference_date: '2026-10-12'
+merchants:
+  Merchant A:
+    category: individual
+  Merchant B:
+    category: software
+  Merchant C:
+    category: cloud
+  Merchant D:
+    category: media
+  Merchant E:
+    category: media
+  Merchant F:
+    category: cloud
+  Merchant G:
+    category: cloud
+  Merchant H:
+    category: media
+  Merchant I:
+    category: retailer
+  Merchant J:
+    category: marketplace
+  Merchant K:
+    category: marketplace
+  Merchant L:
+    category: marketplace
+  Merchant M:
+    category: digital service
+  Merchant N:
+    category: marketplace
+  Merchant O:
+    category: retailer
+  Merchant P:
+    category: software
+  Merchant Q:
+    category: retailer
+  Merchant R:
+    category: digital service
+  Merchant S:
+    category: travel provider
+  Merchant T:
+    category: cloud
+  Merchant U:
+    category: media
+  Merchant V:
+    category: cloud
+  Merchant W:
+    category: marketplace
+  Merchant X:
+    category: travel provider
+  Merchant Y:
+    category: cloud

@@ -2,7 +2,7 @@
 PY ?= $(if $(wildcard .venv/Scripts/python.exe),.venv/Scripts/python,$(if $(wildcard .venv/bin/python),.venv/bin/python,python))
 PORT ?= 8000
 
-.PHONY: help install run test import sample seed seed-check sync demo spike mcp openapi check secrets reset video-reset
+.PHONY: help install run test import sample seed seed-check sync demo spike mcp openapi check secrets reset video-reset publishable
 
 help:
 	@echo "install     venv dependencies"
@@ -61,7 +61,10 @@ openapi:
 secrets:
 	$(PY) tools/check_secrets.py
 
-check: secrets test
+publishable:
+	$(PY) tools/check_publishable.py
+
+check: secrets publishable test
 
 reset:
 	$(PY) -m lupa reset

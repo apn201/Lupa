@@ -93,3 +93,25 @@ def test_rebuild_keeps_revoked_status(lupa_no_ai):
     lp.import_csv(str(SAMPLE), str(KNOWN), now=NOW)
     assert lp.permission(c["id"]).status == "revoked"
     assert len(lp.list_permissions()) == 22
+
+
+# ------------------------------------------------- the anonymized real export
+REAL = SAMPLE.parent / "sample_activity_anonymized.csv"
+REAL_KNOWN = SAMPLE.parent / "merchants.yml"
+
+
+def test_real_sample_counts_frozen():
+    """Frozen from the real numbers on 2026-10-08 (export only, no settings list yet).
+
+    When private/settings_list.yml is added and the sample regenerated, re-freeze:
+    agreements with no charge in the window then become permissions too.
+    """
+    import pytest
+    if not REAL.exists():
+        pytest.skip("no anonymized sample")
+    known = recon.load_known(REAL_KNOWN)
+    res = recon.reconstruct(activity_csv.load(REAL), known, known.reference_date)
+    assert len(res) == 15
+    assert Counter(r.permission.kind for r in res) == {"unknown": 10, "fixed_recurring": 4, "variable_recurring": 1}
+    assert Counter(f for r in res for f in r.permission.attention) == {"NEW_LAST_30D": 3, "AMOUNT_JUMP": 2}
+    assert Counter(r.permission.currency for r in res) == {"EUR": 12, "USD": 2, "SEK": 1}

@@ -36,7 +36,41 @@ def main() -> int:
     if not live:
         print("PayPal is off: approved payments end as 'allowed', not 'captured'.\n")
 
+    def due() -> dict | None:
+        """The EUR recurring permission whose next charge is closest to due today."""
+        best, score = None, None
+        for p in perms:
+            prof = p.get("profile") or {}
+            if (p["status"] != "active" or p["currency"] != "EUR" or "recurring" not in p["kind"]
+                    or not prof.get("interval_days_median") or prof.get("months_since_last") is None):
+                continue
+            ratio = prof["months_since_last"] * 30.44 / prof["interval_days_median"]
+            s_ = abs(1 - ratio)
+            if score is None or s_ < score:
+                best, score = p, s_
+        return best
+
+    def amount(p: dict | None, a):
+        if isinstance(a, int):
+            return a
+        prof = (p or {}).get("profile") or {}
+        med = prof.get("amount_median") or 1000
+        if a == "median":
+            return med
+        if a.startswith("median*"):
+            return round(med * float(a.split("*")[1]))
+        if a == "limit":
+            return -(-int((prof.get("amount_max") or med) * 1.15) // 500) * 500
+        raise ValueError(a)
+
+    revoked_sub: list[str] = []
+
     def pid(ref: str) -> str | None:
+        if ref == "@due":
+            p = due()
+            return p["id"] if p else None
+        if ref == "paypal_sub:revoked":
+            return revoked_sub[0] if revoked_sub else None
         if ref.startswith("@"):
             return saved[ref[1:]]
         if ref == "paypal_sub:first":
@@ -52,7 +86,11 @@ def main() -> int:
     for i, s in enumerate(steps, 1):
         do, expect, actual, extra = s["do"], s.get("expect", ""), "", ""
         if do == "policy":
-            r = c.put(f"{P}/payment-permissions/{pid(s['permission'])}/policy", json=s["policy"])
+            target = next(p for p in perms if p["id"] == pid(s["permission"]))
+            pol = {k: (amount(target, v) if k in ("max_amount", "max_per_month") else v) for k, v in s["policy"].items()}
+            r = c.put(f"{P}/payment-permissions/{target['id']}/policy", json=pol)
+            print(f"   using {target['merchant_alias']} ({target['merchant_category']}, {target['kind']}), "
+                  f"limit {pol['max_amount'] / 100:.2f}")
             actual = "set" if r.status_code == 200 else f"error {r.status_code}"
         elif do == "agent_permission":
             r = c.post(f"{P}/payment-permissions", json={"agent_id": s["agent_id"], "label": s["label"]})
@@ -74,7 +112,8 @@ def main() -> int:
                 rows.append((i, s.get("say", do), expect, "SKIP (no such permission)", ""))
                 print(f"{i:2}. {s.get('say', do)}: SKIP (no such permission)")
                 continue
-            body = {k: s[k] for k in ("amount", "is_recurring", "merchant_alias", "assessment") if k in s}
+            body = {k: s[k] for k in ("is_recurring", "merchant_alias", "assessment", "purpose") if k in s}
+            body["amount"] = amount(next((x for x in perms if x["id"] == p), None), s["amount"])
             hdr = {"X-Lupa-Agent": s["agent"]} if s.get("agent") else {}
             r = c.post(f"{P}/payment-permissions/{p}/requests", json={**body, "source": "scenario"}, headers=hdr)
             data = r.json().get("data") or {}
@@ -94,6 +133,7 @@ def main() -> int:
                 continue
             r = c.post(f"{P}/payment-permissions/{p}/revoke")
             actual = (r.json().get("data") or {}).get("paypal_action", f"error {r.status_code}")
+            revoked_sub.append(p)
         if not live and expect == "captured":
             expect = "allowed"
         ok = "" if not expect else ("ok" if expect == actual else "MISMATCH")
