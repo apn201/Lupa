@@ -18,7 +18,8 @@ log = logging.getLogger("lupa.webhook")
 def status(request: Request):
     lp = request.app.state.lupa
     return {"marker": PAYPAL, "enabled": lp.paypal.enabled, "base_url": lp.paypal.base,
-            "card_configured": bool(lp.settings.card_number)}
+            "card_configured": bool(lp.settings.card_number),
+            "webhook_verification": bool(lp.settings.paypal_webhook_id)}
 
 
 @router.post("/sync")
