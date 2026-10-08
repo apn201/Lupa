@@ -1,0 +1,20 @@
+# /etc/systemd/system/lupa.service
+[Unit]
+Description=Lupa - Consumer Payment Authorization API (demo)
+After=network.target
+
+[Service]
+Type=simple
+User=lupa
+Group=lupa
+WorkingDirectory=/opt/lupa
+EnvironmentFile=/opt/lupa/.env
+ExecStart=/opt/lupa/.venv/bin/uvicorn lupa.api.app:app --host 127.0.0.1 --port 8710 --proxy-headers --forwarded-allow-ips 127.0.0.1
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=full
+ReadWritePaths=/opt/lupa/var
+
+[Install]
+WantedBy=multi-user.target
