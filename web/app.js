@@ -75,6 +75,26 @@ async function loadPermissions() {
   document.querySelectorAll("#perm-list .row").forEach(r => r.addEventListener("click", () => openDetail(r.dataset.id)));
   refreshQueueCount();
 }
+async function sync() {
+  const btn = $("#btn-sync"), out = $("#sync-result");
+  btn.disabled = true;
+  out.textContent = "Syncing with the PayPal sandbox…";
+  try {
+    const r = await call("POST", "/paypal/sync");
+    out.textContent = `${r.transactions} transactions imported, ${r.permissions} permissions reconstructed.`
+      + (r.transaction_search === "ok" ? "" : ` Transaction Search unavailable (${r.transaction_search}).`);
+    await loadPermissions();
+  } catch (e) {
+    out.textContent = `Sync failed: ${e.message}`;
+  } finally {
+    btn.disabled = false;
+  }
+}
+$("#btn-sync").addEventListener("click", sync);
+call("GET", "/paypal/status").then(s => {
+  if (!s.enabled) { $("#btn-sync").disabled = true; $("#sync-result").textContent = "PayPal keys not set: no sync."; }
+}).catch(() => {});
+
 function rowHtml(p) {
   const chips = p.attention_sentences.map(a => `<span class="chip warn" title="${esc(a.text)}">${esc(a.code)}</span>`).join("");
   return `<button class="row" data-id="${esc(p.id)}">

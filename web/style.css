@@ -83,6 +83,7 @@ h3 { font-size: 16px; margin: 18px 0 8px; color: var(--navy); }
 .kv dt { color: var(--muted); } .kv dd { margin: 0; font-variant-numeric: tabular-nums; }
 .card .kv { box-shadow: none; padding: 0; }
 .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.actions.sync { align-items: center; margin: -8px 0 16px; }
 .btn {
   border: 2px solid var(--blue); background: var(--card); color: var(--blue); border-radius: 999px;
   padding: 6px 16px; font-weight: 700; font-size: 14px;

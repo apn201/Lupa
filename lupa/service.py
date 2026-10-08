@@ -513,11 +513,16 @@ class Lupa:
     def sync(self, days: int = 90) -> dict:
         """● Transaction Search + subscriptions -> ledger -> rebuilt permissions."""
         now = self.clock()
+        start = now - timedelta(days=days)
+        # `seed_sandbox.py --fresh` sets a floor so an earlier test round's sandbox activity stays out.
+        since = self.repo.get_meta("sync_since")
+        if since:
+            start = max(start, datetime.fromisoformat(since))
         txns = []
         with recording() as calls:
             search_error = None
             try:
-                for detail in reporting.search(self.paypal, now - timedelta(days=days), now):
+                for detail in reporting.search(self.paypal, start, now):
                     t = reporting.to_txn(detail)
                     if t is not None:
                         txns.append(t)
@@ -532,7 +537,7 @@ class Lupa:
                     sub = subscriptions.get(self.paypal, sid)
                     alias = sub.get("custom_id") or sid
                     for st in subscriptions.list_transactions(
-                            self.paypal, sid, _iso(now - timedelta(days=days)), _iso(now)):
+                            self.paypal, sid, _iso(start), _iso(now)):
                         gross = ((st.get("amount_with_breakdown") or {}).get("gross_amount") or {})
                         if not gross:
                             continue

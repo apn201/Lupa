@@ -31,7 +31,7 @@ class FakePayPal:
         self.seen_request_ids: list[str] = []
         self.cancelled: list[str] = []
         self.fail_orders = False
-        r = router
+        self.router = r = router
         r.post(f"{BASE}/v1/oauth2/token").mock(return_value=httpx.Response(
             200, json={"access_token": "A21-test", "token_type": "Bearer", "expires_in": 32000}))
         r.post(f"{BASE}/v2/checkout/orders").mock(side_effect=self.order)
@@ -257,3 +257,19 @@ def test_agent_cannot_revoke_or_decide_for_others(world):
     held = client.post(f"{P}/payment-permissions/{c}/requests", json={"amount": 8990}).json()["data"]["request"]
     r = client.post(f"{P}/requests/{held['id']}/decision", headers=hdr, json={"decision": "approve", "confidence": 1})
     assert r.status_code == 403
+
+
+def test_sync_respects_the_seed_floor(world):
+    client, lp, pp, _ = world
+    floor = NOW - timedelta(days=2)
+    lp.repo.set_meta("sync_since", floor.isoformat())
+    starts = []
+
+    def search(request):
+        starts.append(request.url.params["start_date"])
+        return httpx.Response(200, json={"transaction_details": [], "total_pages": 1})
+
+    pp.router.get(f"{BASE}/v1/reporting/transactions").mock(side_effect=search)
+    r = client.post("/paypal/sync").json()
+    assert r["marker"] == "●" and r["transaction_search"] == "ok"
+    assert starts and min(starts) >= floor.strftime("%Y-%m-%dT%H:%M:%S")

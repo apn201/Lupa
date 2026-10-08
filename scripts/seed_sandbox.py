@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import json
 import sys
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import yaml
@@ -66,6 +67,11 @@ def main() -> int:
         state["subs"] = {}
         state["orders"] = []
         state["round"] = state.get("round", 1) + 1
+        # Sync only what this round creates; earlier rounds (and their test payments) stay out.
+        # Five minutes of slack for clock skew between this machine and PayPal.
+        since = (datetime.now(timezone.utc) - timedelta(minutes=5)).isoformat()
+        Repo(Database(s.db_path)).set_meta("sync_since", since)
+        print(f"Sync floor set to {since}")
 
     rnd = state.get("round", 1)
     if "product" not in state:

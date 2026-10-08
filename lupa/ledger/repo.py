@@ -133,6 +133,14 @@ class Repo:
         )
         return int(rows[0]["s"])
 
+    # ---- meta --------------------------------------------------------------
+    def get_meta(self, key: str) -> str | None:
+        rows = self.db.query("SELECT value FROM meta WHERE key = ?", (key,))
+        return rows[0]["value"] if rows else None
+
+    def set_meta(self, key: str, value: str) -> None:
+        self.db.execute("INSERT OR REPLACE INTO meta(key, value) VALUES (?, ?)", (key, value))
+
     # ---- audit -------------------------------------------------------------
     def log(self, kind: str, marker: str, ref_id: str | None = None, **payload: Any) -> Event:
         return self.save(Event(kind=kind, marker=marker, ref_id=ref_id, payload=payload))

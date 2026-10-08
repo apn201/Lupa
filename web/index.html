@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lupa</title>
-  <link rel="stylesheet" href="/static/style.css?v=4">
+  <link rel="stylesheet" href="/static/style.css?v=5">
 </head>
 <body>
   <header class="top">
@@ -20,6 +20,10 @@
   <main>
     <section id="permissions" class="screen">
       <h1 id="headline">Loading…</h1>
+      <div class="actions sync">
+        <button class="btn" id="btn-sync">Sync from PayPal <b class="m m-paypal">●</b></button>
+        <span id="sync-result" class="note" aria-live="polite"></span>
+      </div>
       <div id="perm-list"></div>
     </section>
 
@@ -57,6 +61,6 @@
     <span><b class="m m-ai">◆</b> AI interpretation</span>
     <span><b class="m m-policy">■</b> POLICY enforcement</span>
   </footer>
-  <script src="/static/app.js?v=4"></script>
+  <script src="/static/app.js?v=5"></script>
 </body>
 </html>
