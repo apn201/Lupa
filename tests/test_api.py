@@ -261,15 +261,28 @@ def test_agent_cannot_revoke_or_decide_for_others(world):
 
 def test_sync_respects_the_seed_floor(world):
     client, lp, pp, _ = world
-    floor = NOW - timedelta(days=2)
-    lp.repo.set_meta("sync_since", floor.isoformat())
+    lp.repo.set_meta("sync_since", (NOW - timedelta(days=2)).isoformat())
     starts = []
+
+    def row(tid, at):
+        return {"transaction_info": {"transaction_id": tid, "transaction_event_code": "T0006",
+                                     "transaction_initiation_date": at.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                                     "transaction_amount": {"value": "-9.99", "currency_code": "EUR"},
+                                     "transaction_status": "S"},
+                "payer_info": {}, "cart_info": {}}
 
     def search(request):
         starts.append(request.url.params["start_date"])
-        return httpx.Response(200, json={"transaction_details": [], "total_pages": 1})
+        if len(starts) > 1:
+            return httpx.Response(200, json={"transaction_details": [], "total_pages": 1})
+        return httpx.Response(200, json={"transaction_details": [
+            row("OLDROUND", NOW - timedelta(days=3)), row("THISROUND", NOW - timedelta(hours=1))],
+            "total_pages": 1})
 
     pp.router.get(f"{BASE}/v1/reporting/transactions").mock(side_effect=search)
     r = client.post("/paypal/sync").json()
     assert r["marker"] == "●" and r["transaction_search"] == "ok"
-    assert starts and min(starts) >= floor.strftime("%Y-%m-%dT%H:%M:%S")
+    # The search window is not narrowed (PayPal 404s on a start date newer than its data) ...
+    assert min(starts) < (NOW - timedelta(days=80)).strftime("%Y-%m-%dT%H:%M:%S")
+    # ... the floor is applied to the rows instead.
+    assert r["transactions"] == 1

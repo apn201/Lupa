@@ -515,16 +515,16 @@ class Lupa:
         now = self.clock()
         start = now - timedelta(days=days)
         # `seed_sandbox.py --fresh` sets a floor so an earlier test round's sandbox activity stays out.
+        # Filtered after the fetch: Transaction Search rejects a start date newer than its data (404).
         since = self.repo.get_meta("sync_since")
-        if since:
-            start = max(start, datetime.fromisoformat(since))
+        floor = datetime.fromisoformat(since) if since else start
         txns = []
         with recording() as calls:
             search_error = None
             try:
                 for detail in reporting.search(self.paypal, start, now):
                     t = reporting.to_txn(detail)
-                    if t is not None:
+                    if t is not None and t.at >= floor:
                         txns.append(t)
             except PayPalError as exc:
                 # Subscriptions still sync through their own endpoint; say what is missing.
@@ -538,6 +538,8 @@ class Lupa:
                     alias = sub.get("custom_id") or sid
                     for st in subscriptions.list_transactions(
                             self.paypal, sid, _iso(start), _iso(now)):
+                        if datetime.fromisoformat(st["time"].replace("Z", "+00:00")) < floor:
+                            continue
                         gross = ((st.get("amount_with_breakdown") or {}).get("gross_amount") or {})
                         if not gross:
                             continue
