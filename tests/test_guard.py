@@ -142,10 +142,7 @@ def test_caps_survive_restart(tmp_path):
 def test_dotenv_last_line_wins_and_real_env_wins(tmp_path, monkeypatch):
     from lupa.config import load_dotenv
     env = tmp_path / ".env"
-    env.write_text("LUPA_T_A=
-LUPA_T_A=filled
-LUPA_T_B=file
-", encoding="utf-8")
+    env.write_text("LUPA_T_A=\nLUPA_T_A=filled\nLUPA_T_B=file\n", encoding="utf-8")
     monkeypatch.delenv("LUPA_T_A", raising=False)
     monkeypatch.setenv("LUPA_T_B", "real")
     load_dotenv(env)
