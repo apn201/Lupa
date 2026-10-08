@@ -72,7 +72,8 @@ async function loadPermissions() {
   $("#perm-list").innerHTML = order.filter(s => groups[s]).map(s => `
     <h2>${esc(s)} · ${groups[s].length}</h2>
     ${groups[s].map(rowHtml).join("")}`).join("");
-  document.querySelectorAll("#perm-list .row").forEach(r => r.addEventListener("click", () => openDetail(r.dataset.id)));
+  document.querySelectorAll("#perm-list .row").forEach(r => r.addEventListener("click", () => openDetail(r.dataset.id)
+    .catch(e => showDetailError(e))));
   refreshQueueCount();
 }
 async function sync() {
@@ -151,7 +152,7 @@ async function openDetail(id) {
     ${p.delegations.length ? `<h2>Delegations</h2>${p.delegations.map(d => `<div class="card">
       ${esc(d.agent_id)} may <b>${esc(d.authority)}</b> up to ${money(d.max_amount, cur)}, recurring ${d.recurring_allowed ? "allowed" : "not allowed"},
       until ${day(d.expires_at)} ${d.revoked_at ? "<span class='error'>revoked</span>" : ""}</div>`).join("")}` : ""}
-    ${p.requests.length ? `<h2>Requests</h2>${p.requests.map(requestCard).join("")}` : ""}
+    ${p.requests.length ? `<h2>Requests</h2>${p.requests.map(r => requestCard(r)).join("")}` : ""}
     <h2>Payments ${mark(p.marker)}</h2>
     <table class="payments">${p.payments.slice().reverse().map(x => `<tr><td>${day(x.at)}</td><td>${esc(x.source)}</td><td>${money(x.amount, x.currency)}</td></tr>`).join("") || "<tr><td>None in the data.</td></tr>"}</table>`;
   $("#detail").hidden = false;
@@ -160,6 +161,12 @@ async function openDetail(id) {
   $("#btn-delegate").addEventListener("click", delegateForm);
   $("#btn-pay").addEventListener("click", payForm);
   $("#btn-revoke")?.addEventListener("click", revoke);
+}
+// A panel that fails to open must say so; a click that does nothing reads as broken.
+function showDetailError(e) {
+  console.error(e);
+  $("#detail-content").innerHTML = `<h1>Could not open this permission</h1><p class="error">${esc(e.message || e)}</p>`;
+  $("#detail").hidden = false;
 }
 $("#detail-close").addEventListener("click", () => { $("#detail").hidden = true; loadPermissions(); });
 $("#detail").addEventListener("click", e => { if (e.target.id === "detail") { $("#detail").hidden = true; loadPermissions(); } });
@@ -271,7 +278,7 @@ function requestCard(r, paypal) {
   const ai = d.ai_verdict ? `${mark("◆")} ${esc(d.ai_verdict)} · confidence ${Number(d.ai_confidence).toFixed(2)}` : `${mark("◆")} no assessment`;
   const pp = [];
   if (r.paypal_authorization_id) pp.push(`authorization <code>${esc(r.paypal_authorization_id)}</code>`);
-  if (paypal) for (const c of paypal.calls) pp.push(`<code>${esc(c.method)} ${esc(c.path)}</code> ${c.status}${c.paypal_id ? ` → <code>${esc(c.paypal_id)}</code>` : ""}`);
+  if (paypal && Array.isArray(paypal.calls)) for (const c of paypal.calls) pp.push(`<code>${esc(c.method)} ${esc(c.path)}</code> ${c.status}${c.paypal_id ? ` → <code>${esc(c.paypal_id)}</code>` : ""}`);
   return `<div class="card">
     <div><span class="verdict v-${esc(d.final)}">${mark("■")} ${esc(d.final || "–")}</span>
       · ${money(r.amount, cur)} · ${esc(r.merchant_alias)} ${r.is_recurring ? "· recurring" : ""} ${r.agent_id ? `· agent ${esc(r.agent_id)}` : ""}
