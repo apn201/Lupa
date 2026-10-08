@@ -1,0 +1,148 @@
+Date,Time,TimeZone,Name,Type,Status,Currency,Gross,Fee,Net,From Email Address,To Email Address,Transaction ID,Reference Txn ID,Balance,Balance Impact,Category
+01/04/2026,17:04:48,Europe/Helsinki,,General Card Deposit,Completed,EUR,18.90,0.00,18.90,,,C20F6699D9A4B0B8F,835837050A2D2620C,0.00,Credit,
+01/04/2026,17:04:48,Europe/Helsinki,Merchant C,PreApproved Payment Bill User Payment,Completed,EUR,-18.90,0.00,-18.90,,,835837050A2D2620C,B-E1688065BB08C64,0.00,Debit,software
+02/04/2026,15:12:57,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.10,0.00,2.10,,,91F18A57A29429B3B,2E46D61784662CE1F,0.00,Credit,
+02/04/2026,15:12:57,Europe/Helsinki,Merchant D,PreApproved Payment Bill User Payment,Completed,EUR,-2.10,0.00,-2.10,,,2E46D61784662CE1F,B-A18702F693C4FA0,0.00,Debit,cloud
+03/04/2026,15:02:28,Europe/Helsinki,,General Card Deposit,Completed,EUR,8.49,0.00,8.49,,,AB66C78015A785BA2,B4393DE29B4F33BFB,0.00,Credit,
+03/04/2026,15:02:28,Europe/Helsinki,Merchant A,PreApproved Payment Bill User Payment,Completed,EUR,-8.49,0.00,-8.49,,,B4393DE29B4F33BFB,B-088A9E57AC1ED19,0.00,Debit,digital service
+05/04/2026,09:17:00,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,555EB16E293F26C9A,9AA85F8C8BDC17BD5,0.00,Credit,
+05/04/2026,09:17:00,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,9AA85F8C8BDC17BD5,B-0F8E7B0886CF9E6,0.00,Debit,media
+08/04/2026,08:19:18,Europe/Helsinki,,General Card Deposit,Completed,EUR,12.99,0.00,12.99,,,D1C1CE4EE75A67ED9,53ED812608C678B81,0.00,Credit,
+08/04/2026,08:19:18,Europe/Helsinki,Merchant F,PreApproved Payment Bill User Payment,Completed,EUR,-12.99,0.00,-12.99,,,53ED812608C678B81,B-04928A1E2A55E9F,0.00,Debit,digital service
+11/04/2026,17:14:15,Europe/Helsinki,,General Card Deposit,Completed,EUR,3.14,0.00,3.14,,,F5DFB036621EBE9D1,0E695A74C31F9534A,0.00,Credit,
+11/04/2026,17:14:15,Europe/Helsinki,Merchant B,PreApproved Payment Bill User Payment,Completed,EUR,-3.14,0.00,-3.14,,,0E695A74C31F9534A,B-4D93DB93CB9521F,0.00,Debit,media
+12/04/2026,20:16:47,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,3EF82A76DDA67A31E,A4CFD5A6FAABC9A29,0.00,Credit,
+12/04/2026,20:16:47,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,A4CFD5A6FAABC9A29,B-0F8E7B0886CF9E6,0.00,Debit,media
+19/04/2026,22:14:38,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,047C09BC18C6F51DE,162B48D26CA2A3BAA,0.00,Credit,
+19/04/2026,22:14:38,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,162B48D26CA2A3BAA,B-0F8E7B0886CF9E6,0.00,Debit,media
+20/04/2026,21:47:48,Europe/Helsinki,,General Card Deposit,Completed,EUR,5.99,0.00,5.99,,,0AE05DA3110758635,6B81410696901601F,0.00,Credit,
+20/04/2026,21:47:48,Europe/Helsinki,Merchant L,PreApproved Payment Bill User Payment,Completed,EUR,-5.99,0.00,-5.99,,,6B81410696901601F,B-0FF3E010C8FD7C5,0.00,Debit,digital service
+22/04/2026,08:12:15,Europe/Helsinki,Merchant I,Express Checkout Payment,Completed,EUR,-34.50,0.00,-34.50,,,390F37A4F1CF8B248,,0.00,Debit,retailer
+22/04/2026,08:12:15,Europe/Helsinki,,General Card Deposit,Completed,EUR,34.50,0.00,34.50,,,D1A66D15296BAC56A,390F37A4F1CF8B248,0.00,Credit,
+25/04/2026,08:33:54,Europe/Helsinki,,General Card Deposit,Completed,EUR,62.10,0.00,62.10,,,C827AC77B3191B7F1,AEF9D64FB62D9D03A,0.00,Credit,
+25/04/2026,08:33:54,Europe/Helsinki,Merchant E,PreApproved Payment Bill User Payment,Completed,EUR,-62.10,0.00,-62.10,,,AEF9D64FB62D9D03A,B-1B4AD00E3B1A8F0,0.00,Debit,utility
+26/04/2026,16:58:07,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,954EEC1BD9EC45773,2A60F1D6B8C13E8BC,0.00,Credit,
+26/04/2026,16:58:07,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,2A60F1D6B8C13E8BC,B-0F8E7B0886CF9E6,0.00,Debit,media
+01/05/2026,21:04:21,Europe/Helsinki,,General Card Deposit,Completed,EUR,17.50,0.00,17.50,,,454371FCAAD7E9AB9,CB06EDE9B313E8999,0.00,Credit,
+01/05/2026,21:04:21,Europe/Helsinki,Merchant C,PreApproved Payment Bill User Payment,Completed,EUR,-17.50,0.00,-17.50,,,CB06EDE9B313E8999,B-E1688065BB08C64,0.00,Debit,software
+02/05/2026,14:50:44,Europe/Helsinki,,General Card Deposit,Completed,EUR,4.55,0.00,4.55,,,61390FE2BAFD015B2,1BF5EBEBE0EC4AA1A,0.00,Credit,
+02/05/2026,14:50:44,Europe/Helsinki,Merchant D,PreApproved Payment Bill User Payment,Completed,EUR,-4.55,0.00,-4.55,,,1BF5EBEBE0EC4AA1A,B-A18702F693C4FA0,0.00,Debit,cloud
+03/05/2026,13:09:17,Europe/Helsinki,,General Card Deposit,Completed,EUR,8.49,0.00,8.49,,,4F9EA6273536CE740,7381DA044852D8282,0.00,Credit,
+03/05/2026,13:09:17,Europe/Helsinki,Merchant A,PreApproved Payment Bill User Payment,Completed,EUR,-8.49,0.00,-8.49,,,7381DA044852D8282,B-088A9E57AC1ED19,0.00,Debit,digital service
+03/05/2026,15:19:38,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,178254C116105ADD6,07F28ADA6CE45DE23,0.00,Credit,
+03/05/2026,15:19:38,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,07F28ADA6CE45DE23,B-0F8E7B0886CF9E6,0.00,Debit,media
+08/05/2026,17:07:36,Europe/Helsinki,,General Card Deposit,Completed,EUR,12.99,0.00,12.99,,,74999DF3253FE2B44,A5725A39E6410CAF1,0.00,Credit,
+08/05/2026,17:07:36,Europe/Helsinki,Merchant F,PreApproved Payment Bill User Payment,Completed,EUR,-12.99,0.00,-12.99,,,A5725A39E6410CAF1,B-04928A1E2A55E9F,0.00,Debit,digital service
+10/05/2026,07:46:18,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,3BCB655F1B1422108,B2456DF961F0CAA63,0.00,Credit,
+10/05/2026,07:46:18,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,B2456DF961F0CAA63,B-0F8E7B0886CF9E6,0.00,Debit,media
+11/05/2026,15:28:03,Europe/Helsinki,,General Card Deposit,Completed,EUR,3.14,0.00,3.14,,,01BE5505345308B25,14B673C8BED8AEBBC,0.00,Credit,
+11/05/2026,15:28:03,Europe/Helsinki,Merchant B,PreApproved Payment Bill User Payment,Completed,EUR,-3.14,0.00,-3.14,,,14B673C8BED8AEBBC,B-4D93DB93CB9521F,0.00,Debit,media
+14/05/2026,14:29:29,Europe/Helsinki,,General Card Deposit,Completed,EUR,89.00,0.00,89.00,,,C1E1619D50507DD34,BC051A5ADAEC69BF3,0.00,Credit,
+14/05/2026,14:29:29,Europe/Helsinki,Merchant H,PreApproved Payment Bill User Payment,Completed,EUR,-89.00,0.00,-89.00,,,BC051A5ADAEC69BF3,B-E7C6333D851E8F4,0.00,Debit,travel provider
+17/05/2026,07:32:04,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,7140C2E3443D141A1,05E9FFF64DAE69CA2,0.00,Credit,
+17/05/2026,07:32:04,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,05E9FFF64DAE69CA2,B-0F8E7B0886CF9E6,0.00,Debit,media
+20/05/2026,20:02:38,Europe/Helsinki,,General Card Deposit,Completed,EUR,5.99,0.00,5.99,,,F07977E6E42B92343,21F7F3581423E9FA9,0.00,Credit,
+20/05/2026,20:02:38,Europe/Helsinki,Merchant L,PreApproved Payment Bill User Payment,Completed,EUR,-5.99,0.00,-5.99,,,21F7F3581423E9FA9,B-0FF3E010C8FD7C5,0.00,Debit,digital service
+24/05/2026,07:22:06,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,5A49F7C5357F1A53F,37E1BD7789E3A5F62,0.00,Credit,
+24/05/2026,07:22:06,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,37E1BD7789E3A5F62,B-0F8E7B0886CF9E6,0.00,Debit,media
+25/05/2026,08:27:51,Europe/Helsinki,,General Card Deposit,Completed,EUR,51.30,0.00,51.30,,,6824309D11B164B10,838B40065320AD386,0.00,Credit,
+25/05/2026,08:27:51,Europe/Helsinki,Merchant E,PreApproved Payment Bill User Payment,Completed,EUR,-51.30,0.00,-51.30,,,838B40065320AD386,B-1B4AD00E3B1A8F0,0.00,Debit,utility
+31/05/2026,06:28:04,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,C85A94F25F765ED3F,06845AA19B5971559,0.00,Credit,
+31/05/2026,06:28:04,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,06845AA19B5971559,B-0F8E7B0886CF9E6,0.00,Debit,media
+01/06/2026,22:38:04,Europe/Helsinki,,General Card Deposit,Completed,EUR,19.90,0.00,19.90,,,846C32E6785E58723,45CE25404F6F20374,0.00,Credit,
+01/06/2026,22:38:04,Europe/Helsinki,Merchant C,PreApproved Payment Bill User Payment,Completed,EUR,-19.90,0.00,-19.90,,,45CE25404F6F20374,B-E1688065BB08C64,0.00,Debit,software
+02/06/2026,11:05:17,Europe/Helsinki,,General Card Deposit,Completed,EUR,9.80,0.00,9.80,,,D69391C2A5C7CB57D,A7679232C1565481C,0.00,Credit,
+02/06/2026,11:05:17,Europe/Helsinki,Merchant D,PreApproved Payment Bill User Payment,Completed,EUR,-9.80,0.00,-9.80,,,A7679232C1565481C,B-A18702F693C4FA0,0.00,Debit,cloud
+03/06/2026,08:45:13,Europe/Helsinki,,General Card Deposit,Completed,EUR,8.49,0.00,8.49,,,C04FBCC9FBF91F2AE,7E8AFC1DADCF95D47,0.00,Credit,
+03/06/2026,08:45:13,Europe/Helsinki,Merchant A,PreApproved Payment Bill User Payment,Completed,EUR,-8.49,0.00,-8.49,,,7E8AFC1DADCF95D47,B-088A9E57AC1ED19,0.00,Debit,digital service
+07/06/2026,19:30:13,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,2146B0B3293BF84C8,E18ADE5E9C886BE7B,0.00,Credit,
+07/06/2026,19:30:13,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,E18ADE5E9C886BE7B,B-0F8E7B0886CF9E6,0.00,Debit,media
+08/06/2026,17:02:15,Europe/Helsinki,,General Card Deposit,Completed,EUR,12.99,0.00,12.99,,,DAC36C44BCC8E0B10,546AFEB8EF05F20A9,0.00,Credit,
+08/06/2026,17:02:15,Europe/Helsinki,Merchant F,PreApproved Payment Bill User Payment,Completed,EUR,-12.99,0.00,-12.99,,,546AFEB8EF05F20A9,B-04928A1E2A55E9F,0.00,Debit,digital service
+09/06/2026,16:41:24,Europe/Helsinki,Merchant J,Express Checkout Payment,Completed,EUR,-15.99,0.00,-15.99,,,7B65395268990702D,,0.00,Debit,marketplace
+09/06/2026,16:41:24,Europe/Helsinki,,General Card Deposit,Completed,EUR,15.99,0.00,15.99,,,CB0E9E275445E1AE7,7B65395268990702D,0.00,Credit,
+11/06/2026,12:05:35,Europe/Helsinki,,General Card Deposit,Completed,EUR,3.14,0.00,3.14,,,0E1E75D3C7BFF97FF,C6DB40F7E90A30BEE,0.00,Credit,
+11/06/2026,12:05:35,Europe/Helsinki,Merchant B,PreApproved Payment Bill User Payment,Completed,EUR,-3.14,0.00,-3.14,,,C6DB40F7E90A30BEE,B-4D93DB93CB9521F,0.00,Debit,media
+14/06/2026,17:44:09,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,E116C47C9565332F8,16EDC2ED522F9865C,0.00,Credit,
+14/06/2026,17:44:09,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,16EDC2ED522F9865C,B-0F8E7B0886CF9E6,0.00,Debit,media
+21/06/2026,14:52:13,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,6CAFC119169C3BCE8,8DD3E254077165291,0.00,Credit,
+21/06/2026,14:52:13,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,8DD3E254077165291,B-0F8E7B0886CF9E6,0.00,Debit,media
+25/06/2026,09:02:57,Europe/Helsinki,,General Card Deposit,Completed,EUR,48.20,0.00,48.20,,,2F46936C3F5DB5EB9,823548F855A3A3144,0.00,Credit,
+25/06/2026,09:02:57,Europe/Helsinki,Merchant E,PreApproved Payment Bill User Payment,Completed,EUR,-48.20,0.00,-48.20,,,823548F855A3A3144,B-1B4AD00E3B1A8F0,0.00,Debit,utility
+28/06/2026,10:51:51,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,C94B5F0F6B8FCDCD6,BD6AD6E9F28AF0460,0.00,Credit,
+28/06/2026,10:51:51,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,BD6AD6E9F28AF0460,B-0F8E7B0886CF9E6,0.00,Debit,media
+30/06/2026,14:58:01,Europe/Helsinki,,General Card Deposit,Completed,EUR,75.00,0.00,75.00,,,51C69013877166E55,FE9ACE109334697A6,0.00,Credit,
+30/06/2026,14:58:01,Europe/Helsinki,Merchant K,PreApproved Payment Bill User Payment,Completed,EUR,-75.00,0.00,-75.00,,,FE9ACE109334697A6,B-C64ADA100EB0069,0.00,Debit,software
+01/07/2026,16:08:22,Europe/Helsinki,,General Card Deposit,Completed,EUR,18.90,0.00,18.90,,,AFE730723573D4696,F75B4272C4B05DAB9,0.00,Credit,
+01/07/2026,16:08:22,Europe/Helsinki,Merchant C,PreApproved Payment Bill User Payment,Completed,EUR,-18.90,0.00,-18.90,,,F75B4272C4B05DAB9,B-E1688065BB08C64,0.00,Debit,software
+02/07/2026,06:12:49,Europe/Helsinki,,General Card Deposit,Completed,EUR,3.12,0.00,3.12,,,7681F7BD6C42F2E43,9968343091B1B6342,0.00,Credit,
+02/07/2026,06:12:49,Europe/Helsinki,Merchant D,PreApproved Payment Bill User Payment,Completed,EUR,-3.12,0.00,-3.12,,,9968343091B1B6342,B-A18702F693C4FA0,0.00,Debit,cloud
+02/07/2026,11:15:29,Europe/Helsinki,Merchant I,Express Checkout Payment,Completed,EUR,-22.90,0.00,-22.90,,,58B595DF61FA57E02,,0.00,Debit,retailer
+02/07/2026,11:15:29,Europe/Helsinki,,General Card Deposit,Completed,EUR,22.90,0.00,22.90,,,C8F4FE7A1E522D1EB,58B595DF61FA57E02,0.00,Credit,
+03/07/2026,15:50:43,Europe/Helsinki,,General Card Deposit,Completed,EUR,8.49,0.00,8.49,,,AAA984D0E351E5D31,F0CAF8858804827E3,0.00,Credit,
+03/07/2026,15:50:43,Europe/Helsinki,Merchant A,PreApproved Payment Bill User Payment,Completed,EUR,-8.49,0.00,-8.49,,,F0CAF8858804827E3,B-088A9E57AC1ED19,0.00,Debit,digital service
+05/07/2026,19:54:26,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,85A4FE447151C0C4A,4B2B2AFE64775314F,0.00,Credit,
+05/07/2026,19:54:26,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,4B2B2AFE64775314F,B-0F8E7B0886CF9E6,0.00,Debit,media
+08/07/2026,12:29:19,Europe/Helsinki,,General Card Deposit,Completed,EUR,12.99,0.00,12.99,,,9FCEB11506C2FE4A3,9B385D350322B0B99,0.00,Credit,
+08/07/2026,12:29:19,Europe/Helsinki,Merchant F,PreApproved Payment Bill User Payment,Completed,EUR,-12.99,0.00,-12.99,,,9B385D350322B0B99,B-04928A1E2A55E9F,0.00,Debit,digital service
+09/07/2026,10:00:00,Europe/Helsinki,Merchant I,Payment Refund,Completed,EUR,22.90,0.00,22.90,,,1D630127108F1FEAF,58B595DF61FA57E02,0.00,Credit,retailer
+11/07/2026,15:42:25,Europe/Helsinki,,General Card Deposit,Completed,EUR,3.14,0.00,3.14,,,2F68BF16E470DFDF2,E62BE1DB8DC7EBCB7,0.00,Credit,
+11/07/2026,15:42:25,Europe/Helsinki,Merchant B,PreApproved Payment Bill User Payment,Completed,EUR,-3.14,0.00,-3.14,,,E62BE1DB8DC7EBCB7,B-4D93DB93CB9521F,0.00,Debit,media
+12/07/2026,10:13:19,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,10C49AB40847AC1A9,4EDED4450243ED207,0.00,Credit,
+12/07/2026,10:13:19,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,4EDED4450243ED207,B-0F8E7B0886CF9E6,0.00,Debit,media
+19/07/2026,22:47:03,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,ADB127DEBA6FB4F0E,AEC76EC38BD715670,0.00,Credit,
+19/07/2026,22:47:03,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,AEC76EC38BD715670,B-0F8E7B0886CF9E6,0.00,Debit,media
+25/07/2026,19:09:47,Europe/Helsinki,,General Card Deposit,Completed,EUR,45.00,0.00,45.00,,,A9F1C32D1F513C2E3,4AC0C5839F135F7B8,0.00,Credit,
+25/07/2026,19:09:47,Europe/Helsinki,Merchant E,PreApproved Payment Bill User Payment,Completed,EUR,-45.00,0.00,-45.00,,,4AC0C5839F135F7B8,B-1B4AD00E3B1A8F0,0.00,Debit,utility
+26/07/2026,10:43:12,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,A6D6FDC528E43855C,4369D7CFCC9F35614,0.00,Credit,
+26/07/2026,10:43:12,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,4369D7CFCC9F35614,B-0F8E7B0886CF9E6,0.00,Debit,media
+01/08/2026,07:05:47,Europe/Helsinki,,General Card Deposit,Completed,EUR,21.30,0.00,21.30,,,09F925C4AAD862590,559EBF9CDE8981457,0.00,Credit,
+01/08/2026,07:05:47,Europe/Helsinki,Merchant C,PreApproved Payment Bill User Payment,Completed,EUR,-21.30,0.00,-21.30,,,559EBF9CDE8981457,B-E1688065BB08C64,0.00,Debit,software
+02/08/2026,09:01:33,Europe/Helsinki,,General Card Deposit,Completed,EUR,6.40,0.00,6.40,,,354BC3500D5DF0658,90EB76A17CC0C2807,0.00,Credit,
+02/08/2026,09:01:33,Europe/Helsinki,Merchant D,PreApproved Payment Bill User Payment,Completed,EUR,-6.40,0.00,-6.40,,,90EB76A17CC0C2807,B-A18702F693C4FA0,0.00,Debit,cloud
+02/08/2026,10:40:29,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,6E0AC5EDE0571090E,4F316DD727965B9E4,0.00,Credit,
+02/08/2026,10:40:29,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,4F316DD727965B9E4,B-0F8E7B0886CF9E6,0.00,Debit,media
+03/08/2026,12:26:07,Europe/Helsinki,,General Card Deposit,Completed,EUR,8.49,0.00,8.49,,,92AE292BB0F64607B,5F7E887A31EE3E8B1,0.00,Credit,
+03/08/2026,12:26:07,Europe/Helsinki,Merchant A,PreApproved Payment Bill User Payment,Completed,EUR,-8.49,0.00,-8.49,,,5F7E887A31EE3E8B1,B-088A9E57AC1ED19,0.00,Debit,digital service
+08/08/2026,14:46:08,Europe/Helsinki,,General Card Deposit,Completed,EUR,12.99,0.00,12.99,,,2B835AF1CCD60FEF0,A554A45AF1DEA8575,0.00,Credit,
+08/08/2026,14:46:08,Europe/Helsinki,Merchant F,PreApproved Payment Bill User Payment,Completed,EUR,-12.99,0.00,-12.99,,,A554A45AF1DEA8575,B-04928A1E2A55E9F,0.00,Debit,digital service
+09/08/2026,17:15:19,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,D0267D9FE6AEEAF81,307928AB15DC4411A,0.00,Credit,
+09/08/2026,17:15:19,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,307928AB15DC4411A,B-0F8E7B0886CF9E6,0.00,Debit,media
+11/08/2026,21:29:29,Europe/Helsinki,,General Card Deposit,Completed,EUR,3.14,0.00,3.14,,,148BD92A7B4F0DBFC,2C699605B5CAC6EE2,0.00,Credit,
+11/08/2026,21:29:29,Europe/Helsinki,Merchant B,PreApproved Payment Bill User Payment,Completed,EUR,-3.14,0.00,-3.14,,,2C699605B5CAC6EE2,B-4D93DB93CB9521F,0.00,Debit,media
+12/08/2026,09:00:00,Europe/Helsinki,,General Currency Conversion,Completed,EUR,-10.00,0.00,-10.00,,,4C0BC9036DF919820,,0.00,Debit,
+12/08/2026,09:00:00,Europe/Helsinki,,General Currency Conversion,Completed,USD,11.62,0.00,11.62,,,3727FB17D75C3A0F6,,0.00,Credit,
+16/08/2026,10:02:59,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,D21C7B6F40A1B19CC,4647EA14EAD40D921,0.00,Credit,
+16/08/2026,10:02:59,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,4647EA14EAD40D921,B-0F8E7B0886CF9E6,0.00,Debit,media
+20/08/2026,19:45:47,Europe/Helsinki,,General Card Deposit,Completed,EUR,5.99,0.00,5.99,,,2EDE439DD2C99CD55,D0F1E4D072BB877E5,0.00,Credit,
+20/08/2026,19:45:47,Europe/Helsinki,Merchant L,PreApproved Payment Bill User Payment,Completed,EUR,-5.99,0.00,-5.99,,,D0F1E4D072BB877E5,B-0FF3E010C8FD7C5,0.00,Debit,digital service
+23/08/2026,14:57:41,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,3A81FEC0E7C9D64F8,8D935B136AC8F58DD,0.00,Credit,
+23/08/2026,14:57:41,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,8D935B136AC8F58DD,B-0F8E7B0886CF9E6,0.00,Debit,media
+25/08/2026,11:44:20,Europe/Helsinki,,General Card Deposit,Completed,EUR,47.10,0.00,47.10,,,9F84558ABE668DE4A,C591C0C842D3CC164,0.00,Credit,
+25/08/2026,11:44:20,Europe/Helsinki,Merchant E,PreApproved Payment Bill User Payment,Completed,EUR,-47.10,0.00,-47.10,,,C591C0C842D3CC164,B-1B4AD00E3B1A8F0,0.00,Debit,utility
+30/08/2026,15:11:03,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,800A2247F43AF648D,15882579CBE0A4BF3,0.00,Credit,
+30/08/2026,15:11:03,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,15882579CBE0A4BF3,B-0F8E7B0886CF9E6,0.00,Debit,media
+01/09/2026,09:42:51,Europe/Helsinki,,General Card Deposit,Completed,EUR,18.50,0.00,18.50,,,3CCA0023E04F4A0B7,CCD931F87683D9257,0.00,Credit,
+01/09/2026,09:42:51,Europe/Helsinki,Merchant C,PreApproved Payment Bill User Payment,Completed,EUR,-18.50,0.00,-18.50,,,CCD931F87683D9257,B-E1688065BB08C64,0.00,Debit,software
+02/09/2026,19:51:01,Europe/Helsinki,,General Card Deposit,Completed,EUR,5.25,0.00,5.25,,,21ED57FCA4D9494B4,D00885284192078E3,0.00,Credit,
+02/09/2026,19:51:01,Europe/Helsinki,Merchant D,PreApproved Payment Bill User Payment,Completed,EUR,-5.25,0.00,-5.25,,,D00885284192078E3,B-A18702F693C4FA0,0.00,Debit,cloud
+03/09/2026,20:01:25,Europe/Helsinki,,General Card Deposit,Completed,EUR,8.49,0.00,8.49,,,A496D4CE97826A03C,5B34BBEEFFE462860,0.00,Credit,
+03/09/2026,20:01:25,Europe/Helsinki,Merchant A,PreApproved Payment Bill User Payment,Completed,EUR,-8.49,0.00,-8.49,,,5B34BBEEFFE462860,B-088A9E57AC1ED19,0.00,Debit,digital service
+06/09/2026,08:34:28,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,339B56413C55CC0EB,A84B185423B4AAF26,0.00,Credit,
+06/09/2026,08:34:28,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,A84B185423B4AAF26,B-0F8E7B0886CF9E6,0.00,Debit,media
+08/09/2026,06:15:43,Europe/Helsinki,,General Card Deposit,Completed,EUR,21.99,0.00,21.99,,,F15B103A2B3483E41,346695A57B11A1D7D,0.00,Credit,
+08/09/2026,06:15:43,Europe/Helsinki,Merchant F,PreApproved Payment Bill User Payment,Completed,EUR,-21.99,0.00,-21.99,,,346695A57B11A1D7D,B-04928A1E2A55E9F,0.00,Debit,digital service
+11/09/2026,07:00:51,Europe/Helsinki,,General Card Deposit,Completed,EUR,3.14,0.00,3.14,,,BDAB66E87F480662C,FE28C2CE2B25F1E5B,0.00,Credit,
+11/09/2026,07:00:51,Europe/Helsinki,Merchant B,PreApproved Payment Bill User Payment,Completed,EUR,-3.14,0.00,-3.14,,,FE28C2CE2B25F1E5B,B-4D93DB93CB9521F,0.00,Debit,media
+13/09/2026,06:58:59,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,D8A01D8884A35377C,E63EC04366C05A588,0.00,Credit,
+13/09/2026,06:58:59,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,E63EC04366C05A588,B-0F8E7B0886CF9E6,0.00,Debit,media
+15/09/2026,21:49:29,Europe/Helsinki,,General Card Deposit,Completed,EUR,9.99,0.00,9.99,,,CB8DE97C738D519CD,F7BC5973C0EB6E1AA,0.00,Credit,
+15/09/2026,21:49:29,Europe/Helsinki,Merchant M,PreApproved Payment Bill User Payment,Completed,EUR,-9.99,0.00,-9.99,,,F7BC5973C0EB6E1AA,B-E1AF97244F1B5F0,0.00,Debit,digital service
+20/09/2026,13:39:50,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,0AADA584BA4B83D5E,0F83F194755BFD020,0.00,Credit,
+20/09/2026,13:39:50,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,0F83F194755BFD020,B-0F8E7B0886CF9E6,0.00,Debit,media
+20/09/2026,21:38:12,Europe/Helsinki,,General Card Deposit,Completed,EUR,5.99,0.00,5.99,,,4805854DBAACC407C,1F51AB4F0082CF310,0.00,Credit,
+20/09/2026,21:38:12,Europe/Helsinki,Merchant L,PreApproved Payment Bill User Payment,Completed,EUR,-5.99,0.00,-5.99,,,1F51AB4F0082CF310,B-0FF3E010C8FD7C5,0.00,Debit,digital service
+25/09/2026,19:42:48,Europe/Helsinki,,General Card Deposit,Completed,EUR,55.90,0.00,55.90,,,D7F8BA7E70DA0B045,BF900284B4D86BD3F,0.00,Credit,
+25/09/2026,19:42:48,Europe/Helsinki,Merchant E,PreApproved Payment Bill User Payment,Completed,EUR,-55.90,0.00,-55.90,,,BF900284B4D86BD3F,B-1B4AD00E3B1A8F0,0.00,Debit,utility
+27/09/2026,11:44:53,Europe/Helsinki,,General Card Deposit,Completed,EUR,2.99,0.00,2.99,,,812FCF9CD2F8A585A,033CD630B90FC94D5,0.00,Credit,
+27/09/2026,11:44:53,Europe/Helsinki,Merchant G,PreApproved Payment Bill User Payment,Completed,EUR,-2.99,0.00,-2.99,,,033CD630B90FC94D5,B-0F8E7B0886CF9E6,0.00,Debit,media

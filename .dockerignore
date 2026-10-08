@@ -1,0 +1,7 @@
+.venv
+var
+private
+.env
+**/__pycache__
+.pytest_cache
+.hypothesis

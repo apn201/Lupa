@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lupa</title>
+  <link rel="stylesheet" href="/static/style.css?v=3">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">Lupa <span class="sub">payment permissions</span></div>
+    <nav class="tabs" role="tablist">
+      <button role="tab" data-screen="permissions" aria-selected="true">Permissions</button>
+      <button role="tab" data-screen="intent">Intent</button>
+      <button role="tab" data-screen="queue">Queue <span id="queue-count" class="count" hidden></span></button>
+      <button role="tab" data-screen="trace">Trace</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="permissions" class="screen">
+      <h1 id="headline">Loading…</h1>
+      <div id="perm-list"></div>
+    </section>
+
+    <section id="intent" class="screen" hidden>
+      <h1>Say what you want, once.</h1>
+      <form id="intent-form" class="intent">
+        <input id="intent-text" type="text" autocomplete="off" maxlength="300"
+               placeholder="Anything recurring over 20 euros needs me.">
+        <button type="submit">Draft</button>
+      </form>
+      <div id="intent-result"></div>
+    </section>
+
+    <section id="queue" class="screen" hidden>
+      <h1>Waiting for you</h1>
+      <div id="queue-list"></div>
+    </section>
+
+    <section id="trace" class="screen" hidden>
+      <h1>Trace</h1>
+      <ol id="trace-list" class="timeline"></ol>
+    </section>
+  </main>
+
+  <aside id="detail" class="sheet" hidden aria-modal="true" role="dialog">
+    <div class="sheet-body">
+      <button class="close" id="detail-close" aria-label="Close">×</button>
+      <div id="detail-content"></div>
+    </div>
+  </aside>
+
+  <footer class="legend">
+    <span><b class="m m-paypal">●</b> PAYPAL live sandbox call</span>
+    <span><b class="m m-proposed">◇</b> PROPOSED API</span>
+    <span><b class="m m-ai">◆</b> AI interpretation</span>
+    <span><b class="m m-policy">■</b> POLICY enforcement</span>
+  </footer>
+  <script src="/static/app.js?v=3"></script>
+</body>
+</html>

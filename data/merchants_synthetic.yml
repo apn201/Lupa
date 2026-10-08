@@ -1,0 +1,100 @@
+# Synthetic sample. alias -> category and the settings-list agreement state.
+reference_date: 2026-10-01
+merchants:
+  Merchant A:
+    category: digital service
+    agreement: active
+    agreement_ref: B-088A9E57AC1ED19
+  Merchant B:
+    category: media
+    agreement: active
+    agreement_ref: B-4D93DB93CB9521F
+  Merchant C:
+    category: software
+    agreement: active
+    agreement_ref: B-E1688065BB08C64
+  Merchant D:
+    category: cloud
+    agreement: active
+    agreement_ref: B-A18702F693C4FA0
+  Merchant E:
+    category: utility
+    agreement: active
+    agreement_ref: B-1B4AD00E3B1A8F0
+  Merchant F:
+    category: digital service
+    agreement: active
+    agreement_ref: B-04928A1E2A55E9F
+  Merchant G:
+    category: media
+    agreement: active
+    agreement_ref: B-0F8E7B0886CF9E6
+  Merchant H:
+    category: travel provider
+    agreement: active
+    agreement_ref: B-E7C6333D851E8F4
+  Merchant I:
+    category: retailer
+  Merchant J:
+    category: marketplace
+  Merchant K:
+    category: software
+    agreement: active
+    agreement_ref: B-C64ADA100EB0069
+  Merchant L:
+    category: digital service
+    agreement: active
+    agreement_ref: B-0FF3E010C8FD7C5
+  Merchant M:
+    category: digital service
+    agreement: active
+    agreement_ref: B-E1AF97244F1B5F0
+  Merchant N:
+    category: digital service
+    agreement: active
+    agreement_ref: B-9DE65B7253DC1CE
+    last_known_payment: 2023-11-02
+  Merchant O:
+    category: media
+    agreement: active
+    agreement_ref: B-DB70BBD66711B5A
+    last_known_payment: 2024-02-17
+  Merchant P:
+    category: software
+    agreement: active
+    agreement_ref: B-5E73EED0250F5A5
+    last_known_payment: 2024-08-30
+  Merchant Q:
+    category: retailer
+    agreement: active
+    agreement_ref: B-AC10996CC512885
+    last_known_payment: 2022-12-05
+  Merchant R:
+    category: travel provider
+    agreement: active
+    agreement_ref: B-B26C9195247AD1C
+    last_known_payment: 2025-01-11
+  Merchant S:
+    category: marketplace
+    agreement: active
+    agreement_ref: B-8C760037EB8F150
+    last_known_payment: 2025-06-21
+  Merchant T:
+    category: digital service
+    agreement: active
+    agreement_ref: B-11D015CCEFED866
+    last_known_payment: 2026-01-28
+  Merchant U:
+    category: individual
+    agreement: active
+    agreement_ref: B-24C273C96AE3386
+    last_known_payment: 2025-03-03
+  Merchant V:
+    category: cloud
+    agreement: active
+    agreement_ref: B-5FD9805703A3E05
+  Merchant W:
+    category: media
+    agreement: active
+    agreement_ref: B-D78AD4B6E0F4865
+    last_known_payment: 2026-02-14

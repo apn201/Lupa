@@ -1,0 +1,15 @@
+private/
+var/
+*.db
+*.db-journal
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+.hypothesis/
+.coverage
+htmlcov/
+.claude/
+*.egg-info/
+docs/openapi.json.tmp
+*.zip

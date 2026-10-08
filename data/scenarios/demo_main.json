@@ -1,0 +1,25 @@
+{
+  "description": "The video scenario (build spec 13). Amounts in minor units.",
+  "steps": [
+    {"do": "policy", "permission": "Merchant C", "policy": {"max_amount": 2500, "recurring": "allow"}},
+    {"do": "request", "permission": "Merchant C", "amount": 1890, "is_recurring": true, "expect": "ALLOW",
+     "say": "Merchant C, 18.90, recurring: within limit, in range"},
+    {"do": "request", "permission": "Merchant C", "amount": 8990, "is_recurring": true, "expect": "HOLD",
+     "save_as": "big", "say": "Merchant C, 89.90: above the limit"},
+    {"do": "resolve", "request": "big", "action": "approve", "expect": "captured",
+     "say": "You approve it: captured"},
+    {"do": "request", "permission": "Merchant C", "amount": 1200, "merchant_alias": "Merchant X", "expect": "HOLD",
+     "say": "Merchant X on Merchant C's permission: not that merchant"},
+    {"do": "agent_permission", "agent_id": "shopping-agent", "label": "Shopping", "save_as": "agent",
+     "policy": {"max_amount": 10000, "recurring": "block", "new_merchant": "allow"},
+     "delegation": {"authority": "approve", "max_amount": 8000, "recurring_allowed": false, "days": 7}},
+    {"do": "request", "permission": "@agent", "agent": "shopping-agent", "amount": 12000,
+     "merchant_alias": "Merchant Y", "expect": "HOLD", "say": "The agent asks for 120.00: over its delegation"},
+    {"do": "request", "permission": "@agent", "agent": "shopping-agent", "amount": 4500,
+     "merchant_alias": "Merchant Y", "assessment": {"decision": "approve", "confidence": 0.97},
+     "expect": "ALLOW", "say": "The agent asks for 45.00 with confidence 0.97: paid"},
+    {"do": "revoke", "permission": "paypal_sub:first", "say": "Revoke a live sandbox subscription"},
+    {"do": "request", "permission": "paypal_sub:first", "amount": 849, "is_recurring": true, "expect": "BLOCK",
+     "say": "A charge on the revoked permission is blocked"}
+  ]
+}
