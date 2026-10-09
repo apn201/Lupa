@@ -12,7 +12,8 @@ API.
 
 Lupa is Finnish and means permit.
 
-- Video: [fill: YouTube link]
+- Video: https://youtu.be/EcN8bAKs9jE
+- Devpost: https://devpost.com/software/lupa
 - Hosted demo: https://lupa.helppox.com (portal) and https://lupa.helppox.com/docs (the API, Swagger UI)
 - API reference: [docs/api-reference.md](docs/api-reference.md)
 
