@@ -443,7 +443,8 @@ class Lupa:
                                 paypal={"name": exc.name, "debug_id": exc.debug_id}) from exc
         self.repo.save(dec)
         self.repo.save(req)
-        self.repo.log(f"request.{action}d_by_human", PROPOSED, rid, state=req.state)
+        done = {"approve": "approved", "reject": "rejected"}[action]
+        self.repo.log(f"request.{done}_by_human", PROPOSED, rid, state=req.state)
         return Outcome({"request": self.request_view(req), "decision": self.decision_view(dec)}, calls)
 
     def expire_holds(self) -> list[str]:
