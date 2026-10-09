@@ -1,5 +1,7 @@
 # LUPA - build specification
 
+> This is the build spec I worked from during the hackathon, kept as it was. What was built is described in the [README](../README.md) and the [API reference](api-reference.md).
+
 This file is written for Claude Code. It describes what to build, in what order, and what "done" means for each step. Read it fully before writing code. Read `docs/paypal-api-reference.md` for the PayPal field names and enums; do not guess PayPal payloads.
 
 Lupa (Finnish: permit) is a working prototype of a **Consumer Payment Authorization API** for agentic commerce, built on the PayPal sandbox, with an AI layer on top that shows what the API makes possible. The first application is an automatic-payment guard: discover, understand and protect the standing permissions that let merchants and agents take money from a consumer.

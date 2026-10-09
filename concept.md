@@ -1,5 +1,7 @@
 # Consumer Payment Authorization API
 
+> This is the original project plan, written before the build started. Parts of it changed on the way. What was built is described in the [README](README.md) and the [API reference](docs/api-reference.md).
+
 ## PayPal AI Hackathon — Project Plan
 
 ## 1. Executive Summary
