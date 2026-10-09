@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Lupa - Consumer Payment Authorization API (proposed)",
-    "description": "◇ endpoints under /proposed/v1/me are proposed; PayPal has no such API today. ● routes under /paypal call the PayPal sandbox. ◆ marks AI interpretation, ■ deterministic policy enforcement. Amounts are integer minor units.",
+    "description": "A proposed API for the buyer's side of agentic payments: see the permissions that can take your money, set limits on them, give an AI agent bounded authority, approve what falls outside it. PayPal has no such API today; this prototype runs it on the PayPal sandbox. ◇ endpoints under /proposed/v1/me are the proposal. ● routes under /paypal call the sandbox. ◆ marks AI interpretation, ■ deterministic policy. Amounts are integer minor units. Full reference: https://github.com/apn201/Lupa/blob/main/docs/api-reference.md",
     "version": "0.1.0"
   },
   "paths": {
@@ -11,7 +11,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "List Permissions",
+        "summary": "List payment permissions",
         "operationId": "list_permissions_proposed_v1_me_payment_permissions_get",
         "parameters": [
           {
@@ -90,7 +90,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Create Agent Permission",
+        "summary": "Create an agent permission",
         "description": "Create an agent_authority permission. Delegate it with POST .../delegate.",
         "operationId": "create_agent_permission_proposed_v1_me_payment_permissions_post",
         "requestBody": {
@@ -132,7 +132,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Get Permission",
+        "summary": "Show payment permission details",
         "operationId": "get_permission_proposed_v1_me_payment_permissions__pid__get",
         "parameters": [
           {
@@ -174,7 +174,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Revoke",
+        "summary": "Revoke a payment permission",
         "operationId": "revoke_proposed_v1_me_payment_permissions__pid__revoke_post",
         "parameters": [
           {
@@ -184,6 +184,22 @@
             "schema": {
               "type": "string",
               "title": "Pid"
+            }
+          },
+          {
+            "name": "x-lupa-agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Lupa-Agent"
             }
           }
         ],
@@ -216,7 +232,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Suspend",
+        "summary": "Suspend a payment permission",
         "operationId": "suspend_proposed_v1_me_payment_permissions__pid__suspend_post",
         "parameters": [
           {
@@ -226,6 +242,22 @@
             "schema": {
               "type": "string",
               "title": "Pid"
+            }
+          },
+          {
+            "name": "x-lupa-agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Lupa-Agent"
             }
           }
         ],
@@ -258,7 +290,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Put Policy",
+        "summary": "Set a permission's policy",
         "operationId": "put_policy_proposed_v1_me_payment_permissions__pid__policy_put",
         "parameters": [
           {
@@ -310,7 +342,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Get Default",
+        "summary": "Show the default policy",
         "operationId": "get_default_proposed_v1_me_policies_default_get",
         "responses": {
           "200": {
@@ -329,7 +361,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Put Default",
+        "summary": "Set the default policy",
         "operationId": "put_default_proposed_v1_me_policies_default_put",
         "requestBody": {
           "content": {
@@ -370,7 +402,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Intent",
+        "summary": "Draft a policy from a sentence",
         "description": "◆ Draft a policy from one sentence. Nothing is stored until PUT .../policy.",
         "operationId": "intent_proposed_v1_me_intent_post",
         "requestBody": {
@@ -412,7 +444,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Suggested Limit",
+        "summary": "Get a suggested limit",
         "operationId": "suggested_limit_proposed_v1_me_payment_permissions__pid__suggested_limit_get",
         "parameters": [
           {
@@ -454,7 +486,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Explain",
+        "summary": "Explain a permission",
         "operationId": "explain_proposed_v1_me_payment_permissions__pid__explain_post",
         "parameters": [
           {
@@ -496,7 +528,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Delegate",
+        "summary": "Delegate a permission to an agent",
         "operationId": "delegate_proposed_v1_me_payment_permissions__pid__delegate_post",
         "parameters": [
           {
@@ -548,7 +580,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Revoke Delegation",
+        "summary": "Revoke a delegation",
         "operationId": "revoke_delegation_proposed_v1_me_delegations__did__delete",
         "parameters": [
           {
@@ -590,7 +622,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Payment Request",
+        "summary": "Create a payment request",
         "description": "A payment request arrives. ◆ assess, ■ decide, ● execute.",
         "operationId": "payment_request_proposed_v1_me_payment_permissions__pid__requests_post",
         "parameters": [
@@ -659,7 +691,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Submit Decision",
+        "summary": "Submit an agent decision",
         "description": "An agent submits its own verdict. Stored as an AI verdict; the engine still decides.",
         "operationId": "submit_decision_proposed_v1_me_requests__rid__decision_post",
         "parameters": [
@@ -728,7 +760,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Resolve",
+        "summary": "Resolve a held request",
         "operationId": "resolve_proposed_v1_me_requests__rid__resolve_post",
         "parameters": [
           {
@@ -780,7 +812,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Requests",
+        "summary": "List payment requests",
         "operationId": "requests_proposed_v1_me_requests_get",
         "parameters": [
           {
@@ -830,7 +862,7 @@
         "tags": [
           "◇ proposed"
         ],
-        "summary": "Events",
+        "summary": "List events",
         "operationId": "events_proposed_v1_me_events_get",
         "parameters": [
           {

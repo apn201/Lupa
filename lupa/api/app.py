@@ -34,9 +34,13 @@ def create_app(lupa: Lupa | None = None, *, workers: bool = True) -> FastAPI:
         title="Lupa - Consumer Payment Authorization API (proposed)",
         version="0.1.0",
         description=(
-            "◇ endpoints under /proposed/v1/me are proposed; PayPal has no such API today. "
-            "● routes under /paypal call the PayPal sandbox. ◆ marks AI interpretation, "
-            "■ deterministic policy enforcement. Amounts are integer minor units."
+            "A proposed API for the buyer's side of agentic payments: see the permissions that can "
+            "take your money, set limits on them, give an AI agent bounded authority, approve what "
+            "falls outside it. PayPal has no such API today; this prototype runs it on the PayPal "
+            "sandbox. ◇ endpoints under /proposed/v1/me are the proposal. ● routes under /paypal "
+            "call the sandbox. ◆ marks AI interpretation, ■ deterministic policy. Amounts are "
+            "integer minor units. Full reference: "
+            "https://github.com/apn201/Lupa/blob/main/docs/api-reference.md"
         ),
         lifespan=lifespan,
     )

@@ -286,3 +286,10 @@ def test_sync_respects_the_seed_floor(world):
     assert min(starts) < (NOW - timedelta(days=80)).strftime("%Y-%m-%dT%H:%M:%S")
     # ... the floor is applied to the rows instead.
     assert r["transactions"] == 1
+
+
+def test_revoke_agent_permission_has_no_paypal_note(world):
+    client, lp, pp, _ = world
+    a = client.post(f"{P}/payment-permissions", json={"agent_id": "shopping-agent", "label": "Shopping"}).json()
+    r = client.post(f"{P}/payment-permissions/{a['data']['id']}/revoke").json()
+    assert r["data"]["paypal_action"] == "none" and "note" not in r["data"] and pp.cancelled == []

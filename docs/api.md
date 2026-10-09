@@ -1,12 +1,12 @@
 # Lupa - Consumer Payment Authorization API (proposed)
 
-◇ endpoints under /proposed/v1/me are proposed; PayPal has no such API today. ● routes under /paypal call the PayPal sandbox. ◆ marks AI interpretation, ■ deterministic policy enforcement. Amounts are integer minor units.
+A proposed API for the buyer's side of agentic payments: see the permissions that can take your money, set limits on them, give an AI agent bounded authority, approve what falls outside it. PayPal has no such API today; this prototype runs it on the PayPal sandbox. ◇ endpoints under /proposed/v1/me are the proposal. ● routes under /paypal call the sandbox. ◆ marks AI interpretation, ■ deterministic policy. Amounts are integer minor units. Full reference: https://github.com/apn201/Lupa/blob/main/docs/api-reference.md
 
 Generated from the OpenAPI document FastAPI emits (`make openapi`). Do not edit by hand.
 
 ## ◇ proposed `GET /proposed/v1/me/payment-permissions`
 
-**List Permissions**
+**List payment permissions**
 
 | parameter | in | required |
 |---|---|---|
@@ -16,7 +16,7 @@ Generated from the OpenAPI document FastAPI emits (`make openapi`). Do not edit 
 
 ## ◇ proposed `POST /proposed/v1/me/payment-permissions`
 
-**Create Agent Permission**
+**Create an agent permission**
 
 Create an agent_authority permission. Delegate it with POST .../delegate.
 
@@ -30,7 +30,7 @@ Body `AgentPermissionIn`:
 
 ## ◇ proposed `GET /proposed/v1/me/payment-permissions/{pid}`
 
-**Get Permission**
+**Show payment permission details**
 
 | parameter | in | required |
 |---|---|---|
@@ -38,23 +38,25 @@ Body `AgentPermissionIn`:
 
 ## ◇ proposed `POST /proposed/v1/me/payment-permissions/{pid}/revoke`
 
-**Revoke**
+**Revoke a payment permission**
 
 | parameter | in | required |
 |---|---|---|
 | `pid` | path | True |
+| `x-lupa-agent` | header | False |
 
 ## ◇ proposed `POST /proposed/v1/me/payment-permissions/{pid}/suspend`
 
-**Suspend**
+**Suspend a payment permission**
 
 | parameter | in | required |
 |---|---|---|
 | `pid` | path | True |
+| `x-lupa-agent` | header | False |
 
 ## ◇ proposed `PUT /proposed/v1/me/payment-permissions/{pid}/policy`
 
-**Put Policy**
+**Set a permission's policy**
 
 | parameter | in | required |
 |---|---|---|
@@ -77,11 +79,11 @@ Body `PolicyIn`:
 
 ## ◇ proposed `GET /proposed/v1/me/policies/default`
 
-**Get Default**
+**Show the default policy**
 
 ## ◇ proposed `PUT /proposed/v1/me/policies/default`
 
-**Put Default**
+**Set the default policy**
 
 Body `PolicyIn`:
 
@@ -100,7 +102,7 @@ Body `PolicyIn`:
 
 ## ◇ proposed `POST /proposed/v1/me/intent`
 
-**Intent**
+**Draft a policy from a sentence**
 
 ◆ Draft a policy from one sentence. Nothing is stored until PUT .../policy.
 
@@ -112,7 +114,7 @@ Body `IntentIn`:
 
 ## ◇ proposed `GET /proposed/v1/me/payment-permissions/{pid}/suggested-limit`
 
-**Suggested Limit**
+**Get a suggested limit**
 
 | parameter | in | required |
 |---|---|---|
@@ -120,7 +122,7 @@ Body `IntentIn`:
 
 ## ◇ proposed `POST /proposed/v1/me/payment-permissions/{pid}/explain`
 
-**Explain**
+**Explain a permission**
 
 | parameter | in | required |
 |---|---|---|
@@ -128,7 +130,7 @@ Body `IntentIn`:
 
 ## ◇ proposed `POST /proposed/v1/me/payment-permissions/{pid}/delegate`
 
-**Delegate**
+**Delegate a permission to an agent**
 
 | parameter | in | required |
 |---|---|---|
@@ -148,7 +150,7 @@ Body `DelegateIn`:
 
 ## ◇ proposed `DELETE /proposed/v1/me/delegations/{did}`
 
-**Revoke Delegation**
+**Revoke a delegation**
 
 | parameter | in | required |
 |---|---|---|
@@ -156,7 +158,7 @@ Body `DelegateIn`:
 
 ## ◇ proposed `POST /proposed/v1/me/payment-permissions/{pid}/requests`
 
-**Payment Request**
+**Create a payment request**
 
 A payment request arrives. ◆ assess, ■ decide, ● execute.
 
@@ -180,7 +182,7 @@ Body `PaymentRequestIn`:
 
 ## ◇ proposed `POST /proposed/v1/me/requests/{rid}/decision`
 
-**Submit Decision**
+**Submit an agent decision**
 
 An agent submits its own verdict. Stored as an AI verdict; the engine still decides.
 
@@ -199,7 +201,7 @@ Body `Assessment`:
 
 ## ◇ proposed `POST /proposed/v1/me/requests/{rid}/resolve`
 
-**Resolve**
+**Resolve a held request**
 
 | parameter | in | required |
 |---|---|---|
@@ -213,7 +215,7 @@ Body `ResolveIn`:
 
 ## ◇ proposed `GET /proposed/v1/me/requests`
 
-**Requests**
+**List payment requests**
 
 | parameter | in | required |
 |---|---|---|
@@ -221,7 +223,7 @@ Body `ResolveIn`:
 
 ## ◇ proposed `GET /proposed/v1/me/events`
 
-**Events**
+**List events**
 
 | parameter | in | required |
 |---|---|---|

@@ -174,7 +174,9 @@ class Lupa:
         """Real where PayPal allows it, honest where it does not."""
         perm = self.permission(pid)
         new_status = "revoked" if action == "revoke" else "suspended"
-        paypal_action = "not_available_to_buyer"
+        # An agent authority lives in Lupa only; everything else outside a sandbox subscription
+        # is an agreement PayPal gives the buyer no API for.
+        paypal_action = "none" if perm.source == "lupa_delegation" else "not_available_to_buyer"
         calls: list[Call] = []
         if perm.source == "paypal_sub":
             fn = subscriptions.cancel if action == "revoke" else subscriptions.suspend

@@ -22,7 +22,7 @@ help:
 
 install:
 	python -m venv .venv
-	$(PY) -m pip install -e ".[dev]"
+	$(PY) -m pip install -e ".[dev,mcp]"
 
 run:
 	@test -f var/lupa.db || $(PY) -m lupa import
